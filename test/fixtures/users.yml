@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userid: 1
+  name: MyString
+  password: MyString
+  confirm_password: MyString
+  dob: 2014-02-05
+  address: MyString
+  phone: 1
+  normaltravelfee: 1
+  gender: false
+  team: MyString
+  NRCnumber: MyString
+  year_of_entry: 1
+  date_of_entry: 2014-02-05
+  leaveday: 1
+
+two:
+  userid: 1
+  name: MyString
+  password: MyString
+  confirm_password: MyString
+  dob: 2014-02-05
+  address: MyString
+  phone: 1
+  normaltravelfee: 1
+  gender: false
+  team: MyString
+  NRCnumber: MyString
+  year_of_entry: 1
+  date_of_entry: 2014-02-05
+  leaveday: 1

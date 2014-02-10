@@ -1,4 +1,22 @@
 <h1>Listing users</h1>
+<%= form_tag users_path ,:method => "get" do %>
+<table>
+  <tr>
+    <td>userid</td><td><%= text_field_tag :userid,params[:userid]%></td>
+  </tr>
+  <tr>
+    <td>name</td><td><%= text_field_tag :name,params[:name]%></td>
+  </tr>
+  <tr>
+    <td>team</td><td><%= text_field_tag :team,params[:team]%></td>
+  </tr>
+</table>
+<%= submit_tag :find%>
+<%end%>
+<%= paginate @users %>
+<div id="users">
+ <%= render @users %>
+</div>
 
 <table>
   <tr>
@@ -29,10 +47,10 @@
     <td><%= user.normaltravelfee %></td>
     <td><%= user.gender %></td>
     <td><%= user.team %></td>
-    <td><%= user.NRCNumber %></td>
+    <td><%= user.NRCnumber %></td>
     <td><%= user.year_of_entry %></td>
     <td><%= user.date_of_entry %></td>
-    <td><%= user.leaveday %></td>
+    <td ><%= user.leaveday %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -41,5 +59,7 @@
 </table>
 
 <br />
+
+<%= will_paginate @users %>
 
 <%= link_to 'New User', new_user_path %>

@@ -1,4 +1,3 @@
 class Timetable < ActiveRecord::Base
-  attr_accessible :classname, :duration, :endtime, :friday, :jplevel, :monday, :saturaday, :school, :startdate, :starttime, :sunday, :thursday, :tuesday, :wednesday
-validates :classname, presence: true
+  attr_accessible :classname, :duration, :endtime, :friday, :jplevel, :monday, :saturday, :school, :startdate, :starttime, :sunday, :thursday, :tuesday, :wednesday
 end

@@ -1,7 +1,20 @@
 <html>
 <h1>Listing travelfees</h1>
 
-
+<%= form_tag travelfees_path, :method => "get" do %>
+<table>
+  <tr>
+    <td>userid<%= text_field_tag :userid,params[:userid] %></td>
+  </tr>
+  <tr>
+    <td>fromdate<%= date_select :date,params[:date] %></td>
+  </tr>
+  <tr>
+    <td>enddate <%= date_select :date,params[:date] %></td>
+  </tr>
+</table>
+<%= submit_tag :find%>
+<%end%>
 
 <table>
   <tr>

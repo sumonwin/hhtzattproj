@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userid: 1
+  date: 2014-02-10
+  reachtime: 2014-02-10
+  leavetime: 2014-02-10
+
+two:
+  userid: 1
+  date: 2014-02-10
+  reachtime: 2014-02-10
+  leavetime: 2014-02-10

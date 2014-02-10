@@ -37,15 +37,17 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.check_box :gender %>
-  </div>
+    <%= f.label :gender ,"Female",:value => true%>
+    <%= f.radio_button :gender,true%>
+    <%= f.label :gender ,"Male" , :value => false%>
+    <%= f.radio_button :gender,false%>
   <div class="field">
     <%= f.label :team %><br />
     <%= f.text_field :team %>
   </div>
   <div class="field">
-    <%= f.label :NRCNumber %><br />
-    <%= f.text_field :NRCNumber %>
+    <%= f.label :NRCnumber %><br />
+    <%= f.text_field :NRCnumber %>
   </div>
   <div class="field">
     <%= f.label :year_of_entry %><br />

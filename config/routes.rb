@@ -1,12 +1,20 @@
 Attendanceproject::Application.routes.draw do
-  devise_for :users
+  
+
+
+  resources :timetables
+
+
+  # devise_for :users
 
   resources :users
 
   
-  resources :timetables
+  # resources :timetables
 
-
+  resources :travelfees
+  resources :attendances
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

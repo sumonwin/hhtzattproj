@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :jplevel %><br />
-   <%= f.select :jplevel, options_for_select(%w[1 2 3 4 5])%>
+    <%= f.number_field :jplevel %>
   </div>
   <div class="field">
     <%= f.label :classname %><br />
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :school %><br />
-     <%= f.select :school, options_for_select(%w[Win Momiji GIC])%>
+    <%= f.text_field :school %>
   </div>
   <div class="field">
     <%= f.label :starttime %><br />
@@ -56,8 +56,8 @@
     <%= f.check_box :friday %>
   </div>
   <div class="field">
-    <%= f.label :saturaday %><br />
-    <%= f.check_box :saturaday %>
+    <%= f.label :saturday %><br />
+    <%= f.check_box :saturday %>
   </div>
   <div class="field">
     <%= f.label :duration %><br />

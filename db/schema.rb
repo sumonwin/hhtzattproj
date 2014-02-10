@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140206114238) do
+ActiveRecord::Schema.define(:version => 20140210090423) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "userid"
     t.date     "date"
-    t.time     "reachtime"
-    t.time     "leavetime"
+    t.date     "reachtime"
+    t.date     "leavetime"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -34,9 +34,18 @@ ActiveRecord::Schema.define(:version => 20140206114238) do
     t.boolean  "wednesday"
     t.boolean  "thursday"
     t.boolean  "friday"
-    t.boolean  "saturaday"
+    t.boolean  "saturday"
     t.float    "duration"
     t.date     "startdate"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "travelfees", :force => true do |t|
+    t.integer  "userid"
+    t.string   "classname"
+    t.date     "date"
+    t.integer  "travel_fee"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -44,13 +53,15 @@ ActiveRecord::Schema.define(:version => 20140206114238) do
   create_table "users", :force => true do |t|
     t.integer  "userid"
     t.string   "name"
+    t.string   "password"
+    t.string   "confirm_password"
     t.date     "dob"
     t.string   "address"
     t.integer  "phone"
     t.integer  "normaltravelfee"
     t.boolean  "gender"
     t.string   "team"
-    t.string   "NRCNumber"
+    t.string   "NRCnumber"
     t.integer  "year_of_entry"
     t.date     "date_of_entry"
     t.integer  "leaveday"
@@ -67,8 +78,5 @@ ActiveRecord::Schema.define(:version => 20140206114238) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
   end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
