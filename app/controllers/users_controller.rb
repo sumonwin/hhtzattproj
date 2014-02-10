@@ -1,13 +1,14 @@
+
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-
+  
   def index
  
 
   #@users= User.find(:all,:conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:find]}%","%#{params[:name]}%","%#{params[:team]}%"]).page(params[:page])
-    #users = User.find(:all, :conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:userid]}%","%#{params[:name]}%","%#{params[:team]}%"])
-    @users =User.search(params[:search],params[:page])
+    @users = User.find(:all, :conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:userid]}%","%#{params[:name]}%","%#{params[:team]}%"]).paginate(:page => params[:page]).per(2)
+   
     
     respond_to do |format|
       format.html # index.html.erb

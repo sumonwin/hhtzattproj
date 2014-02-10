@@ -20,5 +20,6 @@ validates :year_of_entry, presence: true, numericality: {only_integer:true}
 validates :leaveday, numericality: {only_integer:true}
 validates :date_of_entry,presence: true
 
- 
+ self.per_page=10
 end
+WillPaginate.per_page=10
