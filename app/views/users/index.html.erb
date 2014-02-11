@@ -13,10 +13,7 @@
 </table>
 <%= submit_tag :find%>
 <%end%>
-<%= paginate @users %>
-<div id="users">
- <%= render @users %>
-</div>
+
 
 <table>
   <tr>
@@ -39,18 +36,18 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.userid %></td>
-    <td><%= user.name %></td>
-    <td><%= user.dob %></td>
-    <td><%= user.address %></td>
-    <td><%= user.phone %></td>
-    <td><%= user.normaltravelfee %></td>
-    <td><%= user.gender %></td>
-    <td><%= user.team %></td>
-    <td><%= user.NRCnumber %></td>
-    <td><%= user.year_of_entry %></td>
-    <td><%= user.date_of_entry %></td>
-    <td ><%= user.leaveday %></td>
+    <td><center><%= user.userid %></center></td>
+    <td><center><%= user.name %></center></td>
+    <td><center><%= user.dob %></center></td>
+    <td><center><%= user.address %></center></td>
+    <td><center><%= user.phone %></center></td>
+    <td><center><%= user.normaltravelfee %></center></td>
+    <td><center><%= user.gender %></center></td>
+    <td><center><%= user.team %></center></td>
+    <td><center><%= user.NRCnumber %></center></td>
+    <td><center><%= user.year_of_entry %></center></td>
+    <td><center><%= user.date_of_entry %></center></td>
+    <td ><center><%= user.leaveday %></center></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -58,8 +55,6 @@
 <% end %>
 </table>
 
-<br />
-
-<%= will_paginate @users %>
-
+<br >
+<%= will_paginate @users%>
 <%= link_to 'New User', new_user_path %>

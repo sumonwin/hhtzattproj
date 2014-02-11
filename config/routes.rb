@@ -1,7 +1,9 @@
 Attendanceproject::Application.routes.draw do
   
 
+  devise_for :users
 
+  get "home/get"
   resources :timetables
 
 
