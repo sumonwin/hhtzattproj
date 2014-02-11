@@ -4,10 +4,18 @@ class UsersController < ApplicationController
   # GET /users.json
   
   def index
+<<<<<<< HEAD
     
     #@users= User.find(:all,:conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:userid]}%","%#{params[:name]}%","%#{params[:team]}%"])
    
     @users = User.paginate(:page=>params[:page],:per_page=>5).find(:all,:conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:userid]}%","%#{params[:name]}%","%#{params[:team]}%"])
+=======
+ 
+
+  #@users= User.find(:all,:conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:find]}%","%#{params[:name]}%","%#{params[:team]}%"]).page(params[:page])
+    @users = User.find(:all, :conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:userid]}%","%#{params[:name]}%","%#{params[:team]}%"]).paginate(:page => params[:page]).per(2)
+   
+>>>>>>> e900b0cfc2ad62b45eb6ebe4f4f6a57d73c3f16a
     
     respond_to do |format|
       format.html # index.html.erb

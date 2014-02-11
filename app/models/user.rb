@@ -28,6 +28,12 @@ validates :year_of_entry, presence: true, numericality: {only_integer:true}
 validates :leaveday, numericality: {only_integer:true}
 validates :date_of_entry,presence: true
 
+<<<<<<< HEAD
  self.per_page=5
 end
 WillPaginate.per_page=5
+=======
+ self.per_page=10
+end
+WillPaginate.per_page=10
+>>>>>>> e900b0cfc2ad62b45eb6ebe4f4f6a57d73c3f16a
