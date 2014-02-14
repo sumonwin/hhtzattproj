@@ -19,7 +19,7 @@ validates :phone, numericality: {only_integer:true}
 validates :team, presence: true
 validates :normaltravelfee, numericality: {only_integer:true}
 validates :year_of_entry, presence: true, numericality: {only_integer:true}
-validates :leaveday, numericality: {only_integer:true}
+validates :leaveday, numericality: {only_integer:true , less_than_or_equal_to: 20}
 validates :date_of_entry,presence: true
 
  self.per_page=5

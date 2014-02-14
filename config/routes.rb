@@ -5,8 +5,12 @@ Attendanceproject::Application.routes.draw do
 
  
 
-  devise_for :users
-
+  devise_for :users #, :skip => [:sessions]
+  #as :user do 
+   # get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    #post 'signin' => 'devise/session#create', :as => :new_user_session
+    #get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  #end
   get "home/get"
   resources :timetables
   
