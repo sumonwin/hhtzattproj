@@ -4,20 +4,16 @@ class UsersController < ApplicationController
   # GET /users.json
   
   def index
-<<<<<<< HEAD
     
     #@users= User.find(:all,:conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:userid]}%","%#{params[:name]}%","%#{params[:team]}%"])
    
     @users = User.paginate(:page=>params[:page],:per_page=>5).find(:all,:conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:userid]}%","%#{params[:name]}%","%#{params[:team]}%"])
-=======
+
  
 
   #@users= User.find(:all,:conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:find]}%","%#{params[:name]}%","%#{params[:team]}%"]).page(params[:page])
-    @users = User.find(:all, :conditions=>["userid LIKE ? && name LIKE ? && team LIKE ? ","%#{params[:userid]}%","%#{params[:name]}%","%#{params[:team]}%"]).paginate(:page => params[:page]).per(2)
    
->>>>>>> e900b0cfc2ad62b45eb6ebe4f4f6a57d73c3f16a
-    
-    respond_to do |format|
+   respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users } 
     end
@@ -27,10 +23,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+      format.html #show.html.erb
+      format.json{render json: @user}
     end
   end
 

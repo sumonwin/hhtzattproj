@@ -1,16 +1,21 @@
 <html>
 <h1>Listing travelfees</h1>
 
-<%= form_tag travelfees_path, :method => "get" do %>
+<%= form_tag travelfees_path, :method => "get" do%>
 <table>
   <tr>
-    <td>userid<%= text_field_tag :userid,params[:userid] %></td>
+    <td>
+     Userid
+    </td>
+    <td>
+    <%= select_tag :userid, options_for_select(@users.collect{|u| [u.userid,u.userid]}) %>
+    </td>
   </tr>
   <tr>
-    <td>fromdate<%= date_select :date1,params[:date1] %></td>
+    <td>fromdate</td><td><%= date_select :date,params[:date] %></td>
   </tr>
   <tr>
-    <td>enddate <%= date_select :date2,params[:date2] %></td>
+    <td>enddate </td><td><%= date_select :date,params[:date] %></td>
   </tr>
 </table>
 <%= submit_tag :find%>
@@ -32,7 +37,7 @@
     <td><%= travelfee.classname %></td>
     <td><%= travelfee.date %></td>
     <td><center><%= travelfee.travel_fee %></td></center>
-    <td><%= link_to 'Show', travelfee %></td>
+    
     <td><%= link_to 'Edit', edit_travelfee_path(travelfee) %></td>
     <td><%= link_to 'Destroy', travelfee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

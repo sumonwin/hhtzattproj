@@ -3,8 +3,8 @@ class CreateAttendances < ActiveRecord::Migration
     create_table :attendances do |t|
       t.integer :userid
       t.date :date
-      t.date :reachtime
-      t.date :leavetime
+      t.time :reachtime
+      t.time :leavetime
 
       t.timestamps
     end

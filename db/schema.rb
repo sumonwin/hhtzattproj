@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140210090423) do
+ActiveRecord::Schema.define(:version => 20140214035817) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "userid"
     t.date     "date"
-    t.date     "reachtime"
-    t.date     "leavetime"
+    t.time     "reachtime"
+    t.time     "leavetime"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -53,8 +53,6 @@ ActiveRecord::Schema.define(:version => 20140210090423) do
   create_table "users", :force => true do |t|
     t.integer  "userid"
     t.string   "name"
-    t.string   "password"
-    t.string   "confirm_password"
     t.date     "dob"
     t.string   "address"
     t.integer  "phone"
@@ -78,5 +76,8 @@ ActiveRecord::Schema.define(:version => 20140210090423) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

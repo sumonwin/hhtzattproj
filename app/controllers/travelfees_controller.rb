@@ -1,3 +1,4 @@
+require "users_controller"
 class TravelfeesController < ApplicationController
   #require 'will_paginate'
   #require 'will_paginate/active_record'
@@ -6,12 +7,12 @@ class TravelfeesController < ApplicationController
   # GET /travelfees.json
   def index
     
-   
-    @travelfees=Travelfee.paginate(:page=>params[:page],:per_page=>5).find(:all, :conditions => ["userid LIKE ?","%#{params[:userid]}%"])
+    @users=User.all
+    @travelfees=Travelfee.paginate(:page=>params[:page],:per_page=>5).find(:all, :conditions => ["userid LIKE ? ","%#{params[:userid]}%"])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @travelfees }
+      format.json { render json: @travelfees, json: @users }
 
     end
   end
@@ -20,16 +21,17 @@ class TravelfeesController < ApplicationController
   # GET /travelfees/1.json
   def show
     @travelfee = Travelfee.find(params[:id])
-
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @travelfee }
+      format.html #show.html.erb
+      format.json{render json: @travelfee}
     end
   end
 
   # GET /travelfees/new
   # GET /travelfees/new.json
   def new
+    @users = User.all
+    @timetables =Timetable.all
     @travelfee = Travelfee.new
 
     respond_to do |format|
@@ -46,6 +48,8 @@ class TravelfeesController < ApplicationController
   # POST /travelfees
   # POST /travelfees.json
   def create
+    @users = User.all
+    @timetables =Timetable.all
     @travelfee = Travelfee.new(params[:travelfee])
 
     respond_to do |format|

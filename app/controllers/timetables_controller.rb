@@ -2,7 +2,7 @@ class TimetablesController < ApplicationController
   # GET /timetables
   # GET /timetables.json
   def index
-    @timetables = Timetable.all
+    @timetables = Timetable.paginate(:page=>params[:page],:per_page=>5).find(:all,:conditions=>["jplevel LIKE ? && school LIKE ? ","%#{params[:jplevel]}%","%#{params[:school]}"])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,17 +13,17 @@ class TimetablesController < ApplicationController
   # GET /timetables/1
   # GET /timetables/1.json
   def show
-    @timetable = Timetable.find(params[:id])
-
+    @timetable= Timetable.find(params[:id])
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @timetable }
+      format.html #show.html.erb
+      format.json{render json: @timetable}
     end
   end
 
   # GET /timetables/new
   # GET /timetables/new.json
   def new
+   
     @timetable = Timetable.new
 
     respond_to do |format|
@@ -40,6 +40,7 @@ class TimetablesController < ApplicationController
   # POST /timetables
   # POST /timetables.json
   def create
+    
     @timetable = Timetable.new(params[:timetable])
 
     respond_to do |format|

@@ -1,8 +1,11 @@
+require "users_controller"
 class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.all
+    @users=User.all
+    @attendances = Attendance.paginate(:page=>params[:page],:per_page=>5).find(:all,:conditions=>["userid LIKE ? ","%#{params[:userid]}%"])
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,16 +17,15 @@ class AttendancesController < ApplicationController
   # GET /attendances/1.json
   def show
     @attendance = Attendance.find(params[:id])
-
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @attendance }
+      format.html #show.html.erb
+      format.json{render json: @attendance}
     end
   end
-
   # GET /attendances/new
   # GET /attendances/new.json
   def new
+    @users=User.all
     @attendance = Attendance.new
 
     respond_to do |format|
@@ -34,12 +36,15 @@ class AttendancesController < ApplicationController
 
   # GET /attendances/1/edit
   def edit
+    
     @attendance = Attendance.find(params[:id])
+    @users=User.all
   end
 
   # POST /attendances
   # POST /attendances.json
   def create
+    @users=User.all
     @attendance = Attendance.new(params[:attendance])
 
     respond_to do |format|
@@ -56,6 +61,7 @@ class AttendancesController < ApplicationController
   # PUT /attendances/1
   # PUT /attendances/1.json
   def update
+    @users=User.all
     @attendance = Attendance.find(params[:id])
 
     respond_to do |format|

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :userid %><br />
-    <%= f.number_field :userid %>
+    <%= f.text_field :userid %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -37,10 +37,10 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.label :gender ,"Female",:value => true%>
-    <%= f.radio_button :gender,true%>
-    <%= f.label :gender ,"Male" , :value => false%>
-    <%= f.radio_button :gender,false%>
+    <%= f.label :gender ,"Male",:value => true%>
+    <%= f.radio_button:gender,'Male',:checked=>true%>
+    <%= f.label :gender ,"Female" , :value => false%>
+    <%= f.radio_button:gender,'female'%>
   <div class="field">
     <%= f.label :team %><br />
     <%= f.text_field :team %>
@@ -61,6 +61,15 @@
     <%= f.label :leaveday %><br />
     <%= f.number_field :leaveday %>
   </div>
+ 
+    <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
   <div class="actions">
     <%= f.submit %>
   </div>

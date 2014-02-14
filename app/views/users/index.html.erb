@@ -8,7 +8,7 @@
     <td>name</td><td><%= text_field_tag :name,params[:name]%></td>
   </tr>
   <tr>
-    <td>team</td><td><%= text_field_tag :team,params[:team]%></td>
+    <td>team</td><td><%= text_field_tag :team,params[:team]%></td> 
   </tr>
 </table>
 <%= submit_tag :find%>
@@ -42,13 +42,18 @@
     <td><center><%= user.address %></center></td>
     <td><center><%= user.phone %></center></td>
     <td><center><%= user.normaltravelfee %></center></td>
-    <td><center><%= user.gender %></center></td>
+    <td><% if (user.gender == true)%>
+    Male
+        <% else %>
+              Female
+        <%end%>            
+    </td>
     <td><center><%= user.team %></center></td>
     <td><center><%= user.NRCnumber %></center></td>
     <td><center><%= user.year_of_entry %></center></td>
     <td><center><%= user.date_of_entry %></center></td>
     <td ><center><%= user.leaveday %></center></td>
-    <td><%= link_to 'Show', user %></td>
+    
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
